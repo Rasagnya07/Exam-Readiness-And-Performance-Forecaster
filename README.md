@@ -4,13 +4,13 @@
 
 <br/>
 
-## 🌐 Live Demo
+## Live Demo
 
 Open `index.html` in any browser — no installation or server required.
 
 <br/>
 
-## 📌 About the Project
+## About the Project
 
 **Exam-Readiness-And-Performance-Forecaster (ERPF)** is a browser-based exam readiness forecasting tool built as part of the **Project Based Learning from FWD** module at **KLH University, Bachupally**.
 
@@ -21,21 +21,21 @@ Pure HTML, CSS, and JavaScript — running entirely in the browser.
 
 <br/>
 
-## ✨ Features
+## Features
 
-- 🔐 **Login & Signup** — client-side authentication stored in localStorage
-- 📅 **Exam Setup** — set your exam date and number of subjects
-- 📚 **Subject & Topic Entry** — add subjects with topic lists per subject
-- 🎚️ **Topic Sliders** — drag sliders to mark how much of each topic is done
-- 📊 **Readiness Score** — weighted formula calculates your overall score
-- ⏱️ **Live Countdown** — real-time days and hours counter to exam day
-- 💡 **Recommendations** — subject-level advice based on your score
-- 💾 **Progress Persistence** — saves your data using localStorage so nothing is lost on refresh
-- 📱 **Responsive Design** — works on desktop, tablet, and mobile
+- **Login & Signup** — client-side authentication stored in localStorage
+- **Exam Setup** — set your exam date and number of subjects
+- **Subject & Topic Entry** — add subjects with topic lists per subject
+- **Topic Sliders** — drag sliders to mark how much of each topic is done
+- **Readiness Score** — weighted formula calculates your overall score
+- **Live Countdown** — real-time days and hours counter to exam day
+- **Recommendations** — subject-level advice based on your score
+- **Progress Persistence** — saves your data using localStorage so nothing is lost on refresh
+- **Responsive Design** — works on desktop, tablet, and mobile
 
 <br/>
 
-## 🧮 Readiness Formula
+## Readiness Formula
 
 ```
 Readiness Score = (Attendance × 0.35) + (Syllabus % × 0.45) + (Time Factor × 0.20)
@@ -50,13 +50,13 @@ Readiness Score = (Attendance × 0.35) + (Syllabus % × 0.45) + (Time Factor × 
 
 | Score Range | Level | Meaning |
 |-------------|-------|---------|
-| 70 and above | 🟢 High | On track |
-| 50 – 69 | 🟡 Medium | Needs more focus |
-| Below 50 | 🔴 Low | Critical attention needed |
+| 70 and above | High | On track |
+| 50 – 69 | Medium | Needs more focus |
+| Below 50 | Low | Critical attention needed |
 
 <br/>
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 EduPulse_FWD/
@@ -75,7 +75,7 @@ EduPulse_FWD/
 
 <br/>
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 Student (Browser)
@@ -94,7 +94,7 @@ localStorage  —  Data Persistence
 
 <br/>
 
-## 💻 CO-Wise Implementation
+## CO-Wise Implementation
 
 | CO | Topic | Implementation in EduPulse |
 |----|-------|----------------------------|
@@ -106,7 +106,7 @@ localStorage  —  Data Persistence
 
 <br/>
 
-## 🔢 DSA Sub-folder (`dsa/`)
+## DSA Sub-folder (`dsa/`)
 
 The `dsa/` folder contains JavaScript implementations of all DSA concepts from the syllabus, applied to EduPulse subject data.
 
@@ -128,7 +128,7 @@ The `dsa/` folder contains JavaScript implementations of all DSA concepts from t
 
 <br/>
 
-## 🚀 How to Run
+## How to Run
 
 1. Download or clone this repository
 2. Open `index.html` in any modern browser (Chrome, Firefox, Edge)
@@ -171,7 +171,7 @@ xdg-open index.html   # Linux
 
 <br/>
 
-## 👩‍💻 Author
+## Author
 
 **Rasagnya Machanavajhala**  
 Roll No: `2520090018`  
