@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- CO1: HTML Document Structure -->
+<html lang="en">
+<head>
+  <!-- CO1: Meta tags, charset, viewport -->
+  <!-- CO5: Meta tags for SEO-friendly page -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EduPulse — Track your exam readiness with smart subject analysis" />
+  <meta name="keywords" content="exam readiness, study tracker, student tool" />
+  <meta name="author" content="Rasagnya Machanavajhala" />
+
+  <title>EduPulse – Exam Readiness Forecaster</title>
+
+  <!-- CO1: Linking external stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- CO1: Google Fonts — Typography essentials -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<!-- CO2: Semantic body tag -->
+<body class="auth-body">
+
+  <!-- CO2: Semantic section for background decoration -->
+  <div class="auth-mesh" aria-hidden="true"></div>
+
+  <!-- CO2: Main wrapper using Flexbox (CO2: Flexbox layout) -->
+  <main class="auth-wrapper">
+
+    <!-- CO2: Semantic left panel -->
+    <section class="auth-left" aria-label="Brand information">
+
+      <!-- CO1: HTML headings and paragraphs -->
+      <div class="brand">
+        <img src="logo.png" alt="EduPulse Logo" class="brand-logo" />
+        <h1 class="brand-name">EduPulse</h1>
+        <p class="brand-tagline">
+          Your personal exam readiness forecaster.<br />
+          Data-driven. Clear. Actionable.
+        </p>
+      </div>
+
+      <!-- CO2: Unordered list — semantic HTML -->
+      <ul class="feature-list" aria-label="Features">
+        <li><span class="feat-icon" aria-hidden="true">📊</span> Subject-wise readiness analysis</li>
+        <li><span class="feat-icon" aria-hidden="true">⏱</span> Live countdown to exam day</li>
+        <li><span class="feat-icon" aria-hidden="true">📝</span> Topic-level completion sliders</li>
+        <li><span class="feat-icon" aria-hidden="true">📈</span> Weighted performance forecast</li>
+      </ul>
+
+    </section>
+
+    <!-- CO2: Semantic right panel — form section -->
+    <section class="auth-right" aria-label="Login and signup forms">
+
+      <!-- CO2: Tab navigation — Flexbox buttons -->
+      <div class="tab-bar" role="tablist">
+        <button class="tab-btn active" id="loginTab"
+          role="tab" aria-selected="true" aria-controls="loginForm"
+          onclick="showTab('login')">
+          Login
+        </button>
+        <button class="tab-btn" id="signupTab"
+          role="tab" aria-selected="false" aria-controls="signupForm"
+          onclick="showTab('signup')">
+          Sign Up
+        </button>
+      </div>
+
+      <!-- ── LOGIN FORM ── -->
+      <!-- CO2: HTML Form with input types and validation attributes -->
+      <form id="loginForm" class="auth-form" novalidate
+        aria-labelledby="loginTab" onsubmit="handleLogin(event)">
+
+        <h2 class="form-title">Welcome back</h2>
+        <p class="form-subtitle">Login to continue your preparation</p>
+
+        <!-- CO2: Form elements with labels and input types -->
+        <div class="field-group">
+          <label for="loginEmail">Email Address</label>
+          <!-- CO2: Advanced input attributes — type, required, placeholder -->
+          <input type="email" id="loginEmail" name="email"
+            placeholder="you@example.com"
+            required autocomplete="email" />
+        </div>
+
+        <div class="field-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password"
+            placeholder="Enter your password"
+            required autocomplete="current-password" />
+        </div>
+
+        <!-- CO5: Form validation feedback area — filled by JS -->
+        <p class="form-error" id="loginError" role="alert" aria-live="polite"></p>
+
+        <button type="submit" class="btn-primary">Login</button>
+
+        <!-- CO1: Anchor / link -->
+        <p class="form-switch">
+          Don't have an account?
+          <a href="#" onclick="showTab('signup'); return false;">Sign up here</a>
+        </p>
+      </form>
+
+      <!-- ── SIGNUP FORM ── -->
+      <form id="signupForm" class="auth-form hidden" novalidate
+        aria-labelledby="signupTab" onsubmit="handleSignup(event)">
+
+        <h2 class="form-title">Create account</h2>
+        <p class="form-subtitle">Start tracking your exam readiness</p>
+
+        <div class="field-group">
+          <label for="signupName">Full Name</label>
+          <!-- CO2: input type="text" with required and minlength -->
+          <input type="text" id="signupName" name="name"
+            placeholder="Your full name"
+            required minlength="2" autocomplete="name" />
+        </div>
+
+        <div class="field-group">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail" name="email"
+            placeholder="you@example.com"
+            required autocomplete="email" />
+        </div>
+
+        <div class="field-group">
+          <label for="signupPassword">Password</label>
+          <!-- CO2: minlength attribute for validation -->
+          <input type="password" id="signupPassword" name="password"
+            placeholder="Minimum 8 characters"
+            required minlength="8" autocomplete="new-password" />
+        </div>
+
+        <p class="form-error" id="signupError" role="alert" aria-live="polite"></p>
+
+        <button type="submit" class="btn-primary">Create Account</button>
+
+        <p class="form-switch">
+          Already have an account?
+          <a href="#" onclick="showTab('login'); return false;">Login here</a>
+        </p>
+      </form>
+
+    </section>
+  </main>
+
+  <!-- CO1: Linking external JS file -->
+  <script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- CO1: HTML Document Structure -->
+<html lang="en">
+<head>
+  <!-- CO1: Meta charset and viewport — browser basics -->
+  <!-- CO5: SEO meta tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EduPulse Dashboard — analyze your exam readiness subject by subject" />
+  <meta name="author" content="Rasagnya Machanavajhala" />
+
+  <title>EduPulse – Dashboard</title>
+
+  <!-- CO1: External stylesheet link -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- CO1: Google Fonts — Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<!-- CO2: Semantic body -->
+<body class="dash-body">
+
+  <!-- ── HEADER ── -->
+  <!-- CO2: Semantic header tag -->
+  <header class="dash-header">
+    <div class="header-brand">
+      <img src="logo.png" alt="EduPulse" class="header-logo" />
+      <span class="header-title">EduPulse</span>
+    </div>
+
+    <!-- CO2: nav — semantic navigation tag -->
+    <nav class="header-nav" aria-label="Dashboard navigation">
+      <!-- CO4: onclick — event handling -->
+      <span class="nav-user" id="navUserName"></span>
+      <button class="btn-logout" onclick="logout()" aria-label="Logout">Logout</button>
+    </nav>
+  </header>
+
+  <!-- ── PROGRESS STEPS ── -->
+  <!-- CO2: Semantic section -->
+  <section class="steps-bar" aria-label="Progress steps">
+    <div class="step active" id="step1" aria-current="step">
+      <span class="step-num">1</span>
+      <span class="step-label">Setup</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step" id="step2">
+      <span class="step-num">2</span>
+      <span class="step-label">Subjects</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step" id="step3">
+      <span class="step-num">3</span>
+      <span class="step-label">Data</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step" id="step4">
+      <span class="step-num">4</span>
+      <span class="step-label">Results</span>
+    </div>
+  </section>
+
+  <!-- ── MAIN CONTENT ── -->
+  <!-- CO2: Semantic main tag -->
+  <main class="dash-main">
+
+    <!-- ════ STEP 1: SETUP ════ -->
+    <section class="dash-card" id="setupSection" aria-labelledby="setupHeading">
+      <!-- CO1: h2 heading -->
+      <h2 id="setupHeading">📅 Exam Setup</h2>
+      <p class="section-desc">Enter your exam date and how many subjects you have.</p>
+
+      <!-- CO2: Form with input types -->
+      <form id="setupForm" novalidate onsubmit="handleSetup(event)">
+
+        <div class="field-group">
+          <label for="examDate">Exam Date</label>
+          <!-- CO2: input type="date" — advanced input type -->
+          <input type="date" id="examDate" required aria-required="true" />
+          <p class="field-hint">Must be a future date</p>
+        </div>
+
+        <div class="field-group">
+          <label for="numSubjects">Number of Subjects</label>
+          <!-- CO2: input type="number" with min/max attributes -->
+          <input type="number" id="numSubjects"
+            min="1" max="10" placeholder="e.g. 4"
+            required aria-required="true" />
+        </div>
+
+        <p class="form-error" id="setupError" role="alert" aria-live="polite"></p>
+
+        <button type="submit" class="btn-primary">Next →</button>
+      </form>
+    </section>
+
+    <!-- ════ STEP 2: SUBJECT NAMES ════ -->
+    <section class="dash-card hidden" id="subjectNamesSection" aria-labelledby="subNamesHeading">
+      <h2 id="subNamesHeading">📚 Subject Names</h2>
+      <p class="section-desc">Enter the name and topics for each subject.</p>
+
+      <!-- CO4: This div is filled dynamically by JavaScript (DOM manipulation) -->
+      <div id="subjectNamesContainer"></div>
+
+      <p class="form-error" id="subjectNamesError" role="alert" aria-live="polite"></p>
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goToStep(1)">← Back</button>
+        <button class="btn-primary" onclick="handleSubjectNames()">Next →</button>
+      </div>
+    </section>
+
+    <!-- ════ STEP 3: ATTENDANCE + SLIDERS ════ -->
+    <section class="dash-card hidden" id="subjectDataSection" aria-labelledby="subDataHeading">
+      <h2 id="subDataHeading">📊 Enter Your Data</h2>
+      <p class="section-desc">Fill in attendance and drag the sliders for each topic.</p>
+
+      <!-- CO4: Filled dynamically by JavaScript -->
+      <div id="subjectDataContainer"></div>
+
+      <p class="form-error" id="subjectDataError" role="alert" aria-live="polite"></p>
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goToStep(2)">← Back</button>
+        <button class="btn-primary" onclick="analyzeReadiness()">Analyze My Readiness →</button>
+      </div>
+    </section>
+
+    <!-- ════ STEP 4: RESULTS ════ -->
+    <section class="dash-card hidden" id="resultsSection" aria-labelledby="resultsHeading">
+      <h2 id="resultsHeading">🎯 Your Readiness Report</h2>
+
+      <!-- CO2: article — semantic tag for self-contained content -->
+      <article class="countdown-box" id="countdownBox" aria-label="Exam countdown">
+        <span class="countdown-label">Days until exam</span>
+        <span class="countdown-number" id="countdownDays">--</span>
+        <span class="countdown-label" id="countdownHours"></span>
+      </article>
+
+      <!-- Overall score — filled by JS -->
+      <div id="overallScoreCard"></div>
+
+      <!-- Per-subject results — filled by JS -->
+      <div id="subjectResultsContainer"></div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" onclick="goToStep(3)">← Edit Data</button>
+        <button class="btn-primary" onclick="resetDashboard()">Start Over</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CO1: External script link -->
+  <script src="dashboard.js"></script>
+</body>
+</html>
