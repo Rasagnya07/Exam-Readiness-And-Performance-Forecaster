@@ -105,28 +105,9 @@ localStorage  —  Data Persistence
 | CO5 | SEO & Validation | Meta description/keywords, `type` attributes, `required`, `minlength`, ARIA labels |
 
 <br/>
+ 
 
-## DSA Sub-folder (`dsa/`)
 
-The `dsa/` folder contains JavaScript implementations of all DSA concepts from the syllabus, applied to EduPulse subject data.
-
-**To run:**
-- **Browser:** Open `dsa/dsa.html` → Press `F12` → Go to Console tab
-- **Terminal:** `node dsa/dsa.js`
-
-**Concepts covered:**
-
-| Category | Topics |
-|----------|--------|
-| Algorithm Analysis | Big-O notation, running time — O(n), O(log n), O(n²), O(n log n) |
-| Searching | Linear Search, Binary Search |
-| Sorting | Bubble, Insertion, Selection, Merge, Quick Sort |
-| Lists | Array ADT, Singly Linked List, Polynomial ADT |
-| Stacks | Stack ADT, Balanced Symbols, Infix to Postfix |
-| Queues | Queue ADT, Circular Queue, Dequeue |
-| Hashing | Hash Function, Separate Chaining, Open Addressing |
-
-<br/>
 
 ## How to Run
 
